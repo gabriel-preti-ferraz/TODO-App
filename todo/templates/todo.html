@@ -1,0 +1,23 @@
+{% extends "bases/layout.html" %}
+
+{% block content %}
+
+<div class="col-md-4 col-md-offset-4">
+    <h1>Todo:</h1>
+    <table class="table table-striped">
+        <th>#</th><th>User</th><th>Title</th><th>Description</th><th></th>
+        <tr>
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.user.username }}</td>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.description }}</td>
+            <td>
+                <form method="POST" action="{% url 'todo' todo_id=todo.id %}"> {% csrf_token %}
+                    <button type="submit" name="delete-todo" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove glyphicon-white"></span></button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

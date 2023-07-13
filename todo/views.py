@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .models import *
-from django.contrib import messages
 from django.contrib.messages import constants
+from django.contrib import messages
+from .models import *
 
 @login_required
 def todo_list(request):
